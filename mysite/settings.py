@@ -120,13 +120,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
 STATICFILES_DIRS = [
-  os.path.join(BASE_DIR, 'static'),
-]
+            os.path.join(BASE_DIR, 'static')
+        ]
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type

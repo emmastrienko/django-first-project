@@ -2,11 +2,8 @@ from django import forms
 from .models import ArticleImage
 
 class ArticleImageForm(forms.ModelForm):
-    images = forms.FileField(
-        widget=forms.ClearableFileInput(attrs={}),
-        required=True
-    )
-
+    image = forms.ImageField(
+        widget=forms.ClearableFileInput(attrs={}))
     class Meta:
         model = ArticleImage
         fields = '__all__'
