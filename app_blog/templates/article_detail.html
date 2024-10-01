@@ -22,8 +22,10 @@
         <h5>{{ item.pub_date|date:"d E Y"|safe|linebreaks }}</h5>
       </div>
       <div>
-        {{ item.description|safe }} {% if item.images.all %} {% include
-        'fotorama.html' with images=images %} {% endif %}
+        {{ item.description|safe }}
+          {% if item.images.all %} 
+            {% include 'fotorama.html' with images=images %} 
+          {% endif %}
       </div>
       <div class="clearfix"></div>
     </div>
