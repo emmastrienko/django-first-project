@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{{ item.title }}</title>
-  </head>
-  <body>
-    {% load static %}
-    <div>
-      <ol class="breadcrumb">
-        <li><a href="/">Головна</a></li>
-        <li><a href="{% url 'articles-list' %}">Публікації</a></li>
-        <li>
-          <a href="{{ item.category.get_absolute_url }}"
-            >{{ item.category|upper }}</a
-          >
-        </li>
-        <li>{{ item.title|upper }}</li>
-      </ol>
-      <div>
-        <h3>{{ item.title }}</h3>
-        <h5>{{ item.pub_date|date:"d E Y"|safe|linebreaks }}</h5>
-      </div>
-      <div>
-        {{ item.description|safe }}
-          {% if item.images.all %} 
-            {% include 'fotorama.html' with images=images %} 
-          {% endif %}
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </body>
-</html>
+{% extends "base.html" %} 
+{% load static %}
+{% block content %} 
+{% spaceless %}
+
+<div class="article-detail">
+  <ol class="breadcrumb">
+    <li><a href="/">Головна</a></li>
+    <li><a href="{% url 'articles-list' %}">Публікації</a></li>
+    <li>{{ item.title|upper }}</li>
+  </ol>
+  <div>
+    <h3>{{ item.title }}</h3>
+    <h5>{{ item.pub_date|date:"d E Y"|safe|linebreaks }}</h5>
+  </div>
+  <div>
+    {{ item.description|escape|safe }} 
+    {% if item.images.all %} 
+    {% include 'fotorama.html' with images=images %}
+    {% endif %}
+  </div>
+  <div class="clearfix"></div>
+</div>
+{% endspaceless %} {% endblock %}

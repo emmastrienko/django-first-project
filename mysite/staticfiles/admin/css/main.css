@@ -1,0 +1,64 @@
+div > h1 {
+	color: #09b3bf;
+  text-align: center;
+}
+
+div.container-image > img {
+  width: 100%;
+ }
+
+ @import
+url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+@media (max-width: 480px) {
+  h1 {
+	font-size: 18px;
+  }
+}
+
+body {
+	background-image: url('../img/bg-image.jpg');
+	background-repeat: repeat-y;
+  background-size: cover
+}
+
+div > h1 {
+	color: #fff;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+body > div > nav > div > a > h4 {
+	color: #fff;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.article-block {
+	background: #fff;
+	color: #180b0b;
+	font-family: 'Ubuntu', sans-serif;
+	box-shadow: 2px 2px 1px #ccc;
+	padding: 10px;
+	margin: 10px;
+}
+
+.article-block a {
+	color: #834545;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.article-detail {
+  color: #fff;
+  background: linear-gradient(#155f64, #31054e);
+  padding: 20px 50px;
+}
+
+body > div > div > ol > li {
+	margin: 0 5px;
+  color: #180b0b;
+}
+
+div.container-image > img {
+	width: 100%;
+  padding: 15px;
+}
+

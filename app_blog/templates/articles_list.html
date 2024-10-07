@@ -1,25 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Публікації</title>
-  </head>
-  <body>
-    Публікації <br />
+{% extends "base.html" %} 
+{% load static %} 
+{% block content %}
+{% spaceless %}
 
-    {% if category %} {{ category }} {% endif %} {% for item in items %}
-    <div class="articles-row">
-      <a href="{{ item.get_absolute_url}}">
-        <h4>{{ item.title }}</h4>
-      </a>
-      <h5>{{ item.pub_date|date:"j E Y"|safe|linebreaks }}</h5>
-      <p>{{ item.description|safe|escape|striptags|truncatewords_html:32 }}</p>
-      <div class="container-image">
-        <img class="img" src="{{ item.images.all.0.image.url }}" alt="" />
-      </div>
-      <div class="clearfix"></div>
-    </div>
-    {% endfor %}
-  </body>
-</html>
+<h1>Публікації</h1>
+<br />
+{% if category %} {{ category }} {% endif %}
+
+{% for item in items %}
+<div class="articles-row" style="color:aliceblue; background-color: rgb(63, 11, 11); padding: 20px;">
+  <a href="{{ item.get_absolute_url }}">
+    <h4>{{ item.title }}</h4>
+  </a>
+  <h5>
+    {{ item.pub_date|date:"j E Y"|safe|linebreaks }}
+  </h5>
+  <p>
+    {{ item.description|safe|escape|striptags|truncatewords_html:32 }}
+  </p>
+  <div class="container-image">
+    <img class="img" src="{{ item.images.all.0.image.url }}" alt="" />
+  </div>
+  <div class="clearfix"></div>
+</div>
+{% endfor %}
+
+{% endspaceless %} 
+{% endblock %}
